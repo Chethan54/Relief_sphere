@@ -1,0 +1,101 @@
+edit.php open url
+
+Example URL for Accessing the Edit Page:
+For volunteers table:
+edit.php?table=volunteers&id=1
+
+For users table:
+edit.php?table=users&id=1
+
+For incidents table:
+edit.php?table=incidents&id=1
+
+For contact_messages table:
+edit.php?table=contact_messages&id=1
+
+
+
+
+
+
+
+user table
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    role VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+contact table
+
+CREATE TABLE contact_messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  message TEXT NOT NULL,
+  sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+incidents table
+
+CREATE TABLE incident_reports (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  security_level VARCHAR(50) NOT NULL,
+  latitude DECIMAL(10, 8) NOT NULL,
+  longitude DECIMAL(11, 8) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  reported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+resource table
+
+CREATE TABLE resource_collection (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  resource_type VARCHAR(100) NOT NULL,
+  quantity INT NOT NULL,
+  location VARCHAR(255) NOT NULL,
+  submitted_by VARCHAR(100) NOT NULL,
+  submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+volunteers table
+
+CREATE TABLE volunteers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  skills TEXT NOT NULL,
+  registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  availability VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE donations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  message TEXT,
+  donated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE donations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    amount DECIMAL(10, 2),
+    message TEXT,
+    upi_reference VARCHAR(100),
+    status ENUM('Pending', 'Completed', 'Failed') DEFAULT 'Pending',
+    donated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
