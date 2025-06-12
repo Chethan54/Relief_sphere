@@ -1,9 +1,9 @@
 <?php
 // Database credentials
-$host     = "localhost";      // or your server IP
-$username = "root";           // default for XAMPP
-$password = "";               // default for XAMPP
-$database = "disaster_relief";     // your database name
+$host     = "sql313.infinityfree.com";      // or your server IP
+$username = "if0_39155453";           // default for XAMPP
+$password = "Tharun09";               // default for XAMPP
+$database = "if0_39155453_XXX";     // your database name
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);
